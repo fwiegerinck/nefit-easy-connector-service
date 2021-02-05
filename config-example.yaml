@@ -1,0 +1,19 @@
+nefit:
+  serial_number: [serialnumber]
+  access_key: [access_key]
+  password: [password]
+
+file:
+  path: /var/nefit-easy/status.json
+
+mqtt:
+  url: mqtt://localhost:1883
+  credentials:
+    username: [mqtt-username]
+    password: [mqtt-password]
+  topic: nefit/[serialnumber]
+  publish: both
+  last_will: true
+  
+debug: nefit-easy-core nefit-easy-connector-service:*
+polling_interval: 10

@@ -1,0 +1,23 @@
+{
+  "name": "nefit-easy-connector-service",
+  "repository": "https://github.com/fwiegerinck/nefit-easy-connector-service",
+  "version": "0.1.0",
+  "description": "Connector service for Nefit Easy - publish metrics to file, MQTT and InfluxDB, receive commands from MQTT",
+  "main": "app.js",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "debug": "^4.3.1",
+    "moment": "^2.29.1",
+    "nefit-easy-commands": "^3.0.5",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Jo Geraerts <jo@umask.net>",
+    "Frank Wiegerinck <github@fwiegerinck.nl>"
+  ],
+  "license": "MIT"
+}
