@@ -23,6 +23,23 @@ let nefitEasyConnector = new NefitEasyConnectorClass(configuration);
 
 // Initialize channels
 const publicationChannels = [];
+var publicationChannelModules = require('require-all')(__dirname + '/lib/channels');
+debug("Found following modules:", publicationChannelModules);
+for (const channelModule in publicationChannelModules) {
+  const channelClass = publicationChannelModules[channelModule];
+// publicationChannelClasses.forEach( channelClass => {
+  try {
+    var channel_instance = new channelClass();
+    channel_instance.initialize(configuration);
+    if(channel_instance.available) {
+      publicationChannels.push(channel_instance);
+    } else {
+      debug("Skip channel module", channelModule, "not available for publications");
+    }
+  } catch (e) {
+    debug("Unable to load channel from", channelModule, " due to ", e);
+  }
+}
 if (publicationChannels.length == 0) {
   publicationChannels.push(require('./lib/publication-channel').console);
 }
