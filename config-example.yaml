@@ -2,6 +2,9 @@ nefit:
   serial_number: [serialnumber]
   access_key: [access_key]
   password: [password]
+  reconnect_timeout: 30
+  timezone: 1
+  conversion_factor_m3: 0.102365
 
 file:
   path: /var/nefit-easy/status.json
@@ -21,7 +24,7 @@ mqtt:
     username: [mqtt-username]
     password: [mqtt-password]
   topic: nefit/[serialnumber]
-  publish: both
+  publish: both # values: json, fields, both
   last_will: true
 
 debug: nefit-easy-core nefit-easy-connector-service:*
