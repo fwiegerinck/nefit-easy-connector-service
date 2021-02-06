@@ -6,6 +6,15 @@ nefit:
 file:
   path: /var/nefit-easy/status.json
 
+influxdb:
+  host: localhost
+  port: 8086
+  database: home_metrics
+  protocol: https
+  credentials:
+    username: root
+    password: root
+
 mqtt:
   url: mqtt://localhost:1883
   credentials:
@@ -14,6 +23,6 @@ mqtt:
   topic: nefit/[serialnumber]
   publish: both
   last_will: true
-  
+
 debug: nefit-easy-core nefit-easy-connector-service:*
 polling_interval: 10

@@ -5,9 +5,12 @@
   "description": "Connector service for Nefit Easy - publish metrics to file, MQTT and InfluxDB, receive commands from MQTT",
   "main": "app.js",
   "dependencies": {
+    "async-mqtt": "^2.6.1",
     "bluebird": "^3.7.2",
     "debug": "^4.3.1",
+    "influx": "^5.7.0",
     "moment": "^2.29.1",
+    "mqtt": "^4.2.6",
     "nefit-easy-commands": "^3.0.5",
     "yaml": "^1.10.0"
   },
