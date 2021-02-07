@@ -23,7 +23,7 @@ mqtt:
   credentials:
     username: [mqtt-username]
     password: [mqtt-password]
-  topic: nefit/[serialnumber]
+  base_topic: nefit/[serialnumber]
   publish: both # values: json, fields, both
   last_will: true
 
