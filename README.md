@@ -58,37 +58,54 @@ polling_interval: 10
 
 Overwrite the default generic settings using the following options:
 
-* *debug* - (default: _none_) enable debugging logging. set to `nefit-easy-connector-service:*` to get all debug logging for this application.
-* *polling_interval* - (default: 10) the interval in seconds to collect data from nefit easy.
+* **debug** - (*default: <none>*) enable debugging logging. set to `nefit-easy-connector-service:*` to get all debug logging for this application.
+* **polling_interval** - (*default: 10*) the interval in seconds to collect data from nefit easy.
 
 ### Nefit easy
 
 Configure the Nefit Easy with the following parameters in the `nefit` section:
 
-* *serial_number* - (required) serial number of your Nefit Easy
-* *access_key* - (required) access key associated with your Nefit Easy
-* *password* - (required) password of the Nefit Easy
+* **serial_number** - (*required*) serial number of your Nefit Easy
+* **access_key** - (*required*) access key associated with your Nefit Easy
+* **password** - (*required*) password of the Nefit Easy
 
-* *reconnect_timeout* - (default: 30) timeout in seconds before reconnecting when connection is lost. Prevents hammering Nefit backend causing a lockout.
-* *timezone* - (default: 1) timezone correction in hours.
-* *conversion_factor_m3* - (default: 0.102365) Conversation factory used to convert from kWh to m3 gas usage.
+* **reconnect_timeout** - (*default: 30*) timeout in seconds before reconnecting when connection is lost. Prevents hammering Nefit backend causing a lockout.
+* **timezone** - (*default: 1*) timezone correction in hours.
+* **conversion_factor_m3** - (*default: 0.102365*) Conversation factory used to convert from kWh to m3 gas usage.
 
 ### Publish to file
 
 To enable publication to file, add the `file:` section.
 
-* *path* - (default: /var/nefit-easy/status.log) Location of the file to publish to. Make sure the directory structure already exists.
+* **path** - (*default: /var/nefit-easy/status.log*) Location of the file to publish to. Make sure the directory structure already exists.
 
 ### Publish to InfluxDB
 
 To enable publication to InfluxDB, add the `influxdb:` section and define the required attributes.
 
-* *host* - (required) IP or DNS address of the InfluxDB service.
-* *database* - (required) Name of the database to connect to.
-* *credentials* - (required) Credentials (username & password) to connect.
-* *port* - (default: 8086) Port used to connect to InfluxDB service.
-* *protocol* - (default: https) Protocol used to connect: http or https
+* **host** - (*required*) IP or DNS address of the InfluxDB service.
+* **database** - (*required*) Name of the database to connect to.
+* **credentials** - (*required*) Credentials (username & password) to connect.
+* **port** - (*default: 8086*) Port used to connect to InfluxDB service.
+* **protocol** - (*default: https*) Protocol used to connect: http or https
 
+### Publish to MQTT
+
+To enable publication to MQTT, add the `mqtt:` section and define the required attributes.
+
+* **url** - (*required*) IP or DNS address of the InfluxDB service.
+* **credentials** - (*required*) Credentials (username & password) to connect.
+* **base_topic** - (*default: nefit/[serialnumber]*) Base topic to publish to...
+* **publish** - (*default: both*) Define whether the values are publish as JSON (`json`), as individual fields (`fields`) or both together (`both`).
+* **last_will** - Add the section `last_will` to indicate the MQTT integration should manage its online status using a 'last will' message.
+
+#### MQTT: last will
+
+To enable publication to MQTT last will support, add the `last_will:` section to the `mqtt:` section. Optionall the following attributes can be customized/configured.
+
+* **topic** - (*default: [base_topic]/available*) Define the topic to publish the last will, by default it uses the base_topic extended with `/available`.
+* **payload/online** - (*default: online*) Define the payload to be published when the daemon is online
+* **payload/offline** - (*default: offline*) Define the payload to be published when the daemon is offline
 
 
 
