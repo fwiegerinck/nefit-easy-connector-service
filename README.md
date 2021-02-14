@@ -110,4 +110,4 @@ To enable publication to MQTT last will support, add the `last_will:` section to
 
 
 
-_Copyright (c) 2021 Frank Wiegerinck_
+_Copyright (c) 2021 FWiegerinck_
