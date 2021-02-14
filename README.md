@@ -58,6 +58,9 @@ polling_interval: 10
 
 Overwrite the default generic settings using the following options:
 
+* *debug* - (default: _none_) enable debugging logging. set to `nefit-easy-connector-service:*` to get all debug logging for this application.
+* *polling_interval* - (default: 10) the interval in seconds to collect data from nefit easy.
+
 | setting | required? | default | description |
 | --------|:---------:|:-------:|-------------|
 | debug   | no | _(empty)_  | enable debugging logging. set to `nefit-easy-connector-service:*` to get all debug logging for this application. |
@@ -66,6 +69,14 @@ Overwrite the default generic settings using the following options:
 ### Nefit easy
 
 Configure the Nefit Easy with the following parameters in the `nefit` section:
+
+* *serial_number* - (required) serial number of your Nefit Easy
+* *access_key* - (required) access key associated with your Nefit Easy
+* *password* - (required) password of the Nefit Easy
+
+* *reconnect_timeout* - (default: 30) timeout in seconds before reconnecting when connection is lost. Prevents hammering Nefit backend causing a lockout.
+* *timezone* - (default: 1) timezone correction in hours.
+* *conversion_factor_m3* - (default: 0.102365) Conversation factory used to convert from kWh to m3 gas usage.
 
 | setting | required? | default | description |
 | --------|:---------:|:-------:|-------------|
