@@ -11,7 +11,8 @@ The application is inspired by the [`nefit-easy-mqtt-bridge`](https://github.com
 
 * install dependencies using `npm install` or build a docker image using the provided Dockerfile
 * create the configuration file `config.yaml` and update the configuration (see below)
-* run `node app.js`
+* (optional) import history of dialy gas usage into InfluxDB or to file by running `node app.js import-history`
+* run `node app.js` to start the daemon
 
 ## Configuration
 
@@ -67,6 +68,7 @@ Overwrite the default generic settings using the following options:
 Configure the Nefit Easy with the following parameters in the `nefit` section:
 
 #### Required
+
 | setting | required? | default | description |
 | --------|:---------:|:-------:|-------------|
 | serial_number | yes  | _n/a_  | The serial number of your Nefit Easy |
@@ -74,6 +76,7 @@ Configure the Nefit Easy with the following parameters in the `nefit` section:
 | password | yes | _n/a_ | The password of the Nefit Easy |
 
 #### Optional
+
 | setting | required? | default | description |
 | --------|:---------:|:-------:|-------------|
 | reconnect_timeout | yes  | 30  | The timeout in seconds before reconnecting when connection is lost. Prevents hammering Nefit backend causing a lockout. |
