@@ -67,18 +67,11 @@ Overwrite the default generic settings using the following options:
 
 Configure the Nefit Easy with the following parameters in the `nefit` section:
 
-#### Required
-
 | setting | required? | default | description |
 | --------|:---------:|:-------:|-------------|
 | serial_number | yes  | _n/a_  | The serial number of your Nefit Easy |
 | access_key | yes | _n/a_ | The access key associated with your Nefit Easy |
 | password | yes | _n/a_ | The password of the Nefit Easy |
-
-#### Optional
-
-| setting | required? | default | description |
-| --------|:---------:|:-------:|-------------|
 | reconnect_timeout | yes  | 30  | The timeout in seconds before reconnecting when connection is lost. Prevents hammering Nefit backend causing a lockout. |
 | timezone | yes | 1 | The timezone correction inhours. |
 | conversion_factor_m3 | no | 0.102365 | Conversation factory used to convert from kWh to m3 gas usage. |
@@ -95,16 +88,11 @@ To enable publication to file, add the `file:` section.
 
 To enable publication to InfluxDB, add the `influxdb:` section and define the required attributes.
 
-#### Required
 | setting | required? | default | description |
 | --------|:---------:|:-------:|-------------|
 | host | yes  | _n/a_ | IP or DNS address of the InfluxDB service |
 | database | yes  | _n/a_ | Name of the database to connect to. |
 | credentials | yes  | _n/a_ | Credentials to connect. |
-
-#### Optional
-| setting | required? | default | description |
-| --------|:---------:|:-------:|-------------|
 | port | no  | 8086 | Port of InfluxDB service. |
 | protocol | no  | https | Protocol used to connect: http or https |
 
