@@ -25,7 +25,11 @@ mqtt:
     password: [mqtt-password]
   base_topic: nefit/[serialnumber]
   publish: both # values: json, fields, both
-  last_will: true
+  last_will:
+    topic: nefit/[serialNumber]/activation
+    payload:
+      online: online
+      offline: offline
 
 debug: nefit-easy-core nefit-easy-connector-service:*
 polling_interval: 10
