@@ -49,6 +49,7 @@ mqtt:
     payload:
       online: online
       offline: offline
+  command: true
 
 debug: nefit-easy-core nefit-easy-connector-service:*
 polling_interval: 10
@@ -98,6 +99,7 @@ To enable publication to MQTT, add the `mqtt:` section and define the required a
 * **base_topic** - (*default: nefit/[serialnumber]*) Base topic to publish to...
 * **publish** - (*default: both*) Define whether the values are publish as JSON (`json`), as individual fields (`fields`) or both together (`both`).
 * **last_will** - Add the section `last_will` to indicate the MQTT integration should manage its online status using a 'last will' message.
+* **command** - Indicate whether the service should support receiving command via MQTT.
 
 #### MQTT: last will
 
