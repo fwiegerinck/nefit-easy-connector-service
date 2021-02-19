@@ -30,6 +30,7 @@ mqtt:
     payload:
       online: online
       offline: offline
+  command: true
 
 debug: nefit-easy-core nefit-easy-connector-service:*
 polling_interval: 10

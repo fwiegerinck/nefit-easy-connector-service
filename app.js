@@ -29,7 +29,7 @@ for (const channelModule in publicationChannelModules) {
 
   try {
     var channel_instance = new channelClass();
-    channel_instance.initialize(configuration);
+    channel_instance.initialize(configuration, nefitEasyConnector);
     if(channel_instance.available) {
       publicationChannels.push(channel_instance);
     } else {
