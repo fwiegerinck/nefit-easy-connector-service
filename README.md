@@ -2,7 +2,7 @@
 
 Connects Nefit Easy backend with different targets. Supported targets are:
 * MQTT - publication of metrics and update of state
-* InfluxDB - publish metrics to a time series database with different measurements for current and dialy usage.
+* InfluxDB2 - publish metrics to a time series database with different measurements for current and dialy usage.
 * File - publish a snapshot of the metrics to a file on the filesystem.
 
 The application is inspired by the [`nefit-easy-mqtt-bridge`](https://github.com/jgeraerts/nefit-easy-mqtt-bridge) and [`nefiteasy-influxdb`](https://github.com/TrafeX/nefiteasy-influxdb).
@@ -28,14 +28,13 @@ nefit:
 file:
   path: /var/nefit-easy/status.json
 
-influxdb:
+influxdb2:
   host: localhost
   port: 8086
-  database: home_metrics
   protocol: https
-  credentials:
-    username: root
-    password: root
+  token: [token]
+  organization: [my-organization]
+  bucket: [my-bucket]
 
 mqtt:
   url: mqtt://localhost:1883
@@ -80,15 +79,14 @@ To enable publication to file, add the `file:` section.
 
 * **path** - (*default: /var/nefit-easy/status.log*) Location of the file to publish to. Make sure the directory structure already exists.
 
-### Publish to InfluxDB
+### Publish to InfluxDB2
 
-To enable publication to InfluxDB, add the `influxdb:` section and define the required attributes.
+To enable publication to InfluxDB2, add the `influxdb2:` section and define the required attributes.
 
-* **host** - (*required*) IP or DNS address of the InfluxDB service.
-* **database** - (*required*) Name of the database to connect to.
-* **credentials** - (*required*) Credentials (username & password) to connect.
-* **port** - (*default: 8086*) Port used to connect to InfluxDB service.
-* **protocol** - (*default: https*) Protocol used to connect: http or https
+* **url** - (*required*) URL of InfluxDB2 service, for example: http://localhost:8086.
+* **token** - (*required*) Token to gain access to the service
+* **organization** - (*required*) Name of the organization.
+* **bucket** - (*required*) Name of the bucket used to write the data.
 
 ### Publish to MQTT
 

@@ -9,14 +9,11 @@ nefit:
 file:
   path: /var/nefit-easy/status.json
 
-influxdb:
-  host: localhost
-  port: 8086
-  database: home_metrics
-  protocol: https
-  credentials:
-    username: root
-    password: root
+influxdb2:
+  url: http://localhost:8086
+  token: [token]
+  organization: [my-org]
+  bucket: iot_metrics
 
 mqtt:
   url: mqtt://localhost:1883
