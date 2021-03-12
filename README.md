@@ -29,9 +29,7 @@ file:
   path: /var/nefit-easy/status.json
 
 influxdb2:
-  host: localhost
-  port: 8086
-  protocol: https
+  url: https://localhost:8886/
   token: [token]
   organization: [my-organization]
   bucket: [my-bucket]
